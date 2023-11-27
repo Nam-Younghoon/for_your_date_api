@@ -28,7 +28,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'api-for-your-date.kro.kr',
     '*.api-for-your-date.kro.kr',
-    'd3fjqjyzc4n459.cloudfront.net'
+    'd3fjqjyzc4n459.cloudfront.net',
+    'd3fjqjyzc4n459.cloudfront.net/*'
 ]
 
 
@@ -64,6 +65,23 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'allauth.account.middleware.AccountMiddleware',
 ]
+
+CORS_ALLOW_METHODS = [  # 허용할 옵션
+    "*"
+]
+CORS_ALLOW_HEADERS = [ # 허용할 헤더
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
