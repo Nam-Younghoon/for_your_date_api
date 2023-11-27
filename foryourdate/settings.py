@@ -27,7 +27,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'api-for-your-date.kro.kr',
-    '*.api-for-your-date.kro.kr'
+    '*.api-for-your-date.kro.kr',
+    'd3fjqjyzc4n459.cloudfront.net'
 ]
 
 
