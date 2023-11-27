@@ -26,7 +26,8 @@ OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '13.125.153.167',
+    'api-for-your-date.kro.kr',
+    '*.api-for-your-date.kro.kr'
 ]
 
 
