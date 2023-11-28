@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
@@ -9,8 +9,33 @@ from .commons import prompt_settings
 import openai
 from .permissions import IsOwnerReadOnly
 from .throttlings import ChatAPIThrottle
+from drf_spectacular.utils import extend_schema, extend_schema_view, inline_serializer, OpenApiResponse
 
 
+@extend_schema_view(
+    update = extend_schema(
+        exclude=True
+    ),
+    partial_update = extend_schema(
+        exclude=True
+    ),
+    list = extend_schema(
+        summary="추천 전체 리스트 api",
+        description="내가 추천받은 내역 전체 리스트"
+    ),
+    create = extend_schema(
+        summary="추천 내역 저장 api",
+        description="추천받은 데이트코스를 저장"
+    ),
+    destroy = extend_schema(
+        summary="추천 내역 삭제",
+        description="추천받았던 내역을 삭제"
+    ),
+    retrieve = extend_schema(
+        summary="추천 상세내역 api",
+        description="내가 추천받았던 코스의 상세내역"
+    ),
+)
 class ChatViewSet(viewsets.ModelViewSet):
     serializer_class = ChatSerializer
     queryset = Chat.objects.all()
@@ -28,6 +53,7 @@ class ChatViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
+    
     def create(self, request, *args, **kwargs):
         data = request.data
         data['author'] = request.user.pk
@@ -57,6 +83,28 @@ class ChatBotApiView(APIView):
     permission_classes = [IsAuthenticated]
     throttle_classes = [ChatAPIThrottle]
 
+    @extend_schema(
+            request=inline_serializer(
+                name='ChatBotApiSerializer',
+                fields={
+                    'datePlace': serializers.CharField(max_length=50, required=True),
+                    'dateSeason': serializers.CharField(max_length=10, required=True),
+                    'dateStart': serializers.CharField(max_length=100, required=True),
+                    'dateEnd': serializers.CharField(max_length=100, required=True),
+                    'dateTransport': serializers.CharField(max_length=50, required=True),
+                }
+            ),
+            summary="OpenAI api 호출",
+            description="OpenAI api를 호출하여 데이트 코스 추천 요청",
+            responses={
+                500: OpenApiResponse({
+                    "detail": "Internal Server Error"
+                }),
+                504: OpenApiResponse({
+                    'detail': "Timeout" 
+                })
+            }
+    )
     def post(self, request):
         datePlace = request.data.get('datePlace')
         dateSeason = request.data.get('dateSeason')
