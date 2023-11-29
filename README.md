@@ -15,8 +15,7 @@
 11. [후기](#11-후기)
 
 ## 1. 프로젝트 목표
-국내여행, 해외여행이라는 큰 카테고리 안에서 내가 기억하고 싶은 여행과 사진들을 기록한다  
-다른 사람들의 기록들을 구경하면서 다음 여행에 참고하도록 할 수 있게한다  
+데이트 예정인 장소와 시간, 계절, 이동수단 등을 입력받아 ChatGPT로부터 데이트 코스를 추천받는다
 
 ## 2. 요구사항 분석 및 기능명세서
 ### 기본 요구사항
@@ -43,9 +42,25 @@
 
 
 ## 5. URL 구조
-    
+
 |구분|HTTP|URL|비고|
 |---|---|---|---|
+|chat|GET|/chat/chat/|추천 전체 리스트 API
+||POST|/chat/chat/|추천 내역 저장 API
+||GET|/chat/chat/{id}/|추천 상세내역 API
+||DELETE|/chat/chat/{id}/|추천 내역 삭제 API
+||POST|/chat/chatbot/|OpenAI api 호출 API
+|user|POST|/user/join/|회원가입 API
+||POST|/user/login/|로그인 API
+||POST|/user/logout/|로그아웃 API
+||POST|/user/token/refresh/|사용자 accessToken 갱신 API
+||POST|/user/token/verify/|사용자 accessToken 유효성 검사 API
+||GET|/user/user/|사용자 정보 조회 API
+  
+![swagger](https://github.com/Nam-Younghoon/for_your_date_front/assets/58909988/0ade1f8c-cec5-43bf-97ba-3b944380de68)
+
+[Swagger로 테스트하기](https://api-for-your-date.kro.kr/api/schema/swagger-ui/)
+
 
 ## 6. 프로젝트 구조
 
