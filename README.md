@@ -43,19 +43,19 @@
 
 ## 5. URL 구조
 
-|구분|HTTP|URL|비고|
-|---|---|---|---|
-|chat|GET|/chat/chat/|추천 전체 리스트 API
-||POST|/chat/chat/|추천 내역 저장 API
-||GET|/chat/chat/{id}/|추천 상세내역 API
-||DELETE|/chat/chat/{id}/|추천 내역 삭제 API
-||POST|/chat/chatbot/|OpenAI api 호출 API
-|user|POST|/user/join/|회원가입 API
-||POST|/user/login/|로그인 API
-||POST|/user/logout/|로그아웃 API
-||POST|/user/token/refresh/|사용자 accessToken 갱신 API
-||POST|/user/token/verify/|사용자 accessToken 유효성 검사 API
-||GET|/user/user/|사용자 정보 조회 API
+|구분|HTTP|URL|설명|비고|
+|---|---|---|---|---|
+|chat|GET|/chat/chat/|추천 전체 리스트 API|나의 글만 조회 가능
+||POST|/chat/chat/|추천 내역 저장 API|로그인 유저만 가능
+||GET|/chat/chat/{id}/|추천 상세내역 API|나의 글만 조회 가능
+||DELETE|/chat/chat/{id}/|추천 내역 삭제 API|나의 글만 삭제 가능
+||POST|/chat/chatbot/|OpenAI api 호출 API|로그인 유저만 가능, 1일 요청 5회 제한
+|user|POST|/user/join/|회원가입 API|accessToken, refreshToken 발급
+||POST|/user/login/|로그인 API|accessToken, refreshToken 발급
+||POST|/user/logout/|로그아웃 API|accessToken, refreshToken 만료
+||POST|/user/token/refresh/|사용자 accessToken 갱신 API|accessToken 갱신
+||POST|/user/token/verify/|사용자 accessToken 유효성 검사 API|
+||GET|/user/user/|사용자 정보 조회 API|
   
 ![swagger](https://github.com/Nam-Younghoon/for_your_date_front/assets/58909988/0ade1f8c-cec5-43bf-97ba-3b944380de68)
 
