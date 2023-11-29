@@ -19,12 +19,32 @@
 
 ## 2. 요구사항 분석 및 기능명세서
 ### 기본 요구사항
+- DRF을 이용하여 구현한다
+- API만 구현한다 (Front-End는 포함시키지 않는다)
+- 회원가입, 로그인을 구현한다
+- 기본적인 CRUD를 구현한다
+- ChatGPT로 요청을 보내는 API를 구현한다
 
-### 요구사항 명세서
+### 추가 요구사항
+- Front-End를 따로 구현하고, UI를 적용한다
+- 챗봇 API는 로그인을 한 유저만 사용가능하다
+- 챗봇 API는 각 사용자마다 하루 5번만 요청할 수 있도록 구현한다
+- 채팅내용을 데이터베이스에 저장한다
+- 저장된 채팅내역을 조회할 수 있도록 구현한다
+- 저장된 채팅내역은 로그인을 한 본인만 볼 수 있게 한다
+- AWS에 배포한다
+- URL을 연결한다
+
+### 기능명세서
+![기능명세서](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/d909e0cb-61b8-47db-84ec-e019a78fe5f3)
 
 ### 마인드맵
+![mindmap](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/a54b532f-6c3e-45a4-9dad-543ad4d436a5)
 
 ## 3. 개발 일정
+2023.11.21 ~ 2023.11.30
+
+![wbs](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/35d97cbf-6ed7-41f5-9b94-f189a2c8410c)
 
 ## 4. 개발 환경 및 배포
 
@@ -39,7 +59,7 @@
 ### AWS
 
 ### 배포
-
+[For Your Date](https://d3fjqjyzc4n459.cloudfront.net/)
 
 ## 5. URL 구조
 
@@ -63,8 +83,62 @@
 
 
 ## 6. 프로젝트 구조
+```
+📦for_your_date_api
+ ┣ 📂.config
+ ┃ ┣ 📂nginx
+ ┃ ┃ ┗ 📜foryourdate.conf
+ ┃ ┗ 📂uwsgi
+ ┃ ┃ ┣ 📜foryourdate.ini
+ ┃ ┃ ┗ 📜uwsgi.service
+ ┣ 📂chat
+ ┃ ┣ 📂__pycache__
+ ┃ ┣ 📂migrations
+ ┃ ┃ ┣ 📂__pycache__
+ ┃ ┃ ┗ 📜__init__.py
+ ┃ ┣ 📜__init__.py
+ ┃ ┣ 📜admin.py
+ ┃ ┣ 📜apps.py
+ ┃ ┣ 📜commons.py
+ ┃ ┣ 📜models.py
+ ┃ ┣ 📜permissions.py
+ ┃ ┣ 📜serializers.py
+ ┃ ┣ 📜tests.py
+ ┃ ┣ 📜throttlings.py
+ ┃ ┣ 📜urls.py
+ ┃ ┗ 📜views.py
+ ┣ 📂foryourdate
+ ┃ ┣ 📂__pycache__
+ ┃ ┣ 📜__init__.py
+ ┃ ┣ 📜asgi.py
+ ┃ ┣ 📜settings.py
+ ┃ ┣ 📜urls.py
+ ┃ ┗ 📜wsgi.py
+ ┣ 📂user
+ ┃ ┣ 📂__pycache__
+ ┃ ┣ 📂migrations
+ ┃ ┃ ┣ 📂__pycache__
+ ┃ ┃ ┗ 📜__init__.py
+ ┃ ┣ 📜__init__.py
+ ┃ ┣ 📜adapters.py
+ ┃ ┣ 📜admin.py
+ ┃ ┣ 📜apps.py
+ ┃ ┣ 📜managers.py
+ ┃ ┣ 📜models.py
+ ┃ ┣ 📜serializers.py
+ ┃ ┣ 📜tests.py
+ ┃ ┣ 📜urls.py
+ ┃ ┗ 📜views.py
+ ┣ 📜.env
+ ┣ 📜.gitignore
+ ┣ 📜README.md
+ ┣ 📜db.sqlite3
+ ┣ 📜manage.py
+ ┗ 📜requirements.txt
+```
 
 ## 7. ERD
+![erd](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/9c117afa-5dea-4361-8737-57b8be038f38)
 
 
 ## 8. 프로토타입
