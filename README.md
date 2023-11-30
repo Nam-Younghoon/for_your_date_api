@@ -40,11 +40,12 @@
     - Frontend는 AWS의 S3 + CloudFront 채택
     - Backend은 AWS의 Lightsail 채택
 
+### 마인드맵
+![mindmap](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/a54b532f-6c3e-45a4-9dad-543ad4d436a5)
+
 ### 기능명세서
 ![기능명세서](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/d909e0cb-61b8-47db-84ec-e019a78fe5f3)
 
-### 마인드맵
-![mindmap](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/a54b532f-6c3e-45a4-9dad-543ad4d436a5)
 
 ## 3. 개발 일정
 2023.11.21 ~ 2023.11.30
