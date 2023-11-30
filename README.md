@@ -15,7 +15,8 @@
 11. [후기](#11-후기)
 
 ## 1. 프로젝트 목표
-데이트 예정인 장소와 시간, 계절, 이동수단 등을 입력받아 ChatGPT로부터 데이트 코스를 추천받는다
+데이트 예정인 장소와 시간, 계절, 이동수단 등을 입력받아 ChatGPT로부터 데이트 코스를 추천받습니다.  
+이 프로젝트는 [이전 프로젝트](https://github.com/Nam-Younghoon/For_Your_Date)를 확장하는 프로젝트이며, DRF(Django REST Framework)을 사용하여 회원가입, 로그인, 로그아웃, 데이터 요청 및 저장 등이 가능하게 API를 제공해주는 목표를 가지고 있습니다.  
 
 ## 2. 요구사항 분석 및 기능명세서
 ### 기본 요구사항
@@ -49,17 +50,26 @@
 ## 4. 개발 환경 및 배포
 
 ### 개발
-<span><img src="https://img.shields.io/badge/-HTML5-E34F26?logo=HTML5&logoColor=white"/></span>
-<span><img src="https://img.shields.io/badge/css3-1658a7?logo=css3&logoColor=white"/></span>
-<span><img src="https://img.shields.io/badge/javascript-F7DF1E?logo=javascript&logoColr=white"/></span>
-<span><img src="https://img.shields.io/badge/bootstrap-7952B3?logo=bootstrap&logoColor=white"/></span>
-<span><img src="https://img.shields.io/badge/python-0769AD?logo=python&logoColor=white"/></span>
-<span><img src="https://img.shields.io/badge/django-175339?logo=django&logoColor=white"/></span>
+#### Frontend
+<img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+<img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
+<img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+
+#### Backend
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
+<img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
 
 ### AWS
+![distribution](https://github.com/Nam-Younghoon/for_your_date_api/assets/58909988/83ac58aa-80bf-4266-bb0b-eef7202184fe)
 
 ### 배포
 [For Your Date](https://d3fjqjyzc4n459.cloudfront.net/)
+```
+Test 계정 정보
+ID : test@test.com
+PW : test1234!@#$
+```
 
 ## 5. URL 구조
 
